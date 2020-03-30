@@ -1,8 +1,25 @@
 body {
-  background-color: grey;
+  padding: 0;
+  margin: 0;
+  background-image: url(https://i.ytimg.com/vi/lCL_YO_l-is/maxresdefault.jpg);
+}
+
+header {
+  background-color: rgba(255, 249, 249, 0.637);
 }
 
 h1 {
+  margin: 0;
+  padding: 0.5em;
+  font-family: "Lato", sans-serif;
+  font-size: 3em;
+  text-align: center;
+}
+
+hr {
+  width: auto;
+  border: solid 2px black;
+  margin-bottom: 2em;
 }
 
 #grid-container {
