@@ -1,0 +1,25 @@
+body {
+  background-color: grey;
+}
+
+h1 {
+}
+
+#grid-container {
+  display: grid;
+  width: 70vh;
+  height: 70vh;
+  margin: auto;
+  border: solid 3px black;
+}
+
+.cell {
+  border: solid 1px black;
+  width: auto;
+  height: auto;
+  background-image: linear-gradient(to bottom right, #bbb, #eee);
+}
+
+.cell:hover {
+  transform: scale(1.1);
+}
