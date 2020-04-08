@@ -66,20 +66,33 @@ function clickCell(cell) {
 
     //Count and display the number of adjacent mines
     let mineCount = 0;
-    let cellRow = Math.floor(parseInt(cell.getAttribute("data-index")) / size);
-    let cellCol = parseInt(cell.getAttribute("data-index")) % size;
+    let index = cell.getAttribute("data-index");
+    let cellRow = Math.floor(parseInt(index) / size);
+    let cellCol = parseInt(index) % size;
     alert(`Row : ${cellRow}   Column : ${cellCol}`);
-    // for (let i = Math.max(cellRow - 1, 0); i <= Math.min(cellRow + 1, 9); i++) {
-    //   for (
-    //     let j = Math.max(cellCol - 1, 0);
-    //     j <= Math.min(cellCol + 1, 9);
-    //     j++
-    //   ) {
-    //     if (grid.rows[i].cells[j].getAttribute("data-mine") == "true")
-    //       mineCount++;
-    //   }
-    // }
-    // cell.innerHTML = mineCount;
+    for (
+      let i = Math.max(cellRow - 1, 0);
+      i <= Math.min(cellRow + 1, size - 1);
+      i++
+    ) {
+      for (
+        let j = Math.max(cellCol - 1, 0);
+        j <= Math.min(cellCol + 1, size - 1);
+        j++
+      ) {
+        if (
+          document
+            .querySelector(`[data-index="${i * size + j}"]`)
+            .getAttribute("data-mine") == "true"
+        ) {
+          mineCount++;
+          console.log(mineCount);
+        }
+      }
+    }
+    console.log(mineCount);
+
+    cell.innerHTML = mineCount;
     // if (mineCount == 0) {
     //   //Reveal all adjacent cells as they do not have a mine
     //   for (
