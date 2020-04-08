@@ -1,5 +1,6 @@
-let size = 4;
-let testMode = true;
+let size = 8;
+bombCount = size * 2;
+let testMode = false;
 
 let grid = document.getElementById("grid-container");
 
@@ -24,8 +25,10 @@ function generateGrid(size) {
 
 //adds mines in random cells
 function addMines() {
-  for (let i = 0; i < size; i++) {
-    let index = Math.floor((Math.random() * 10) % (size * size));
+  for (let i = 0; i < bombCount; i++) {
+    let index = Math.floor(Math.random() * size * size);
+    console.log(index);
+
     let cell = document.querySelector(`[data-index="${index}"]`);
     cell.setAttribute("data-mine", "true");
     if (testMode) {
@@ -62,7 +65,7 @@ function clickCell(cell) {
     revealMines();
     alert("Game Over");
   } else {
-    cell.classList.add("clicked");
+    cell.className = "clicked";
 
     //Count and display the number of adjacent mines
     let mineCount = 0;
@@ -84,34 +87,35 @@ function clickCell(cell) {
           document
             .querySelector(`[data-index="${i * size + j}"]`)
             .getAttribute("data-mine") == "true"
-        ) {
+        )
           mineCount++;
-          // console.log(mineCount);
+      }
+    }
+
+    cell.innerHTML = mineCount;
+
+    if (mineCount == 0) {
+      //Reveal all adjacent cells as they do not have a mine
+      for (
+        let i = Math.max(cellRow - 1, 0);
+        i <= Math.min(cellRow + 1, size - 1);
+        i++
+      ) {
+        for (
+          let j = Math.max(cellCol - 1, 0);
+          j <= Math.min(cellCol + 1, size - 1);
+          j++
+        ) {
+          //Recursive Call
+          if (
+            document.querySelector(`[data-index="${i * size + j}"]`)
+              .innerHTML == ""
+          )
+            clickCell(document.querySelector(`[data-index="${i * size + j}"]`));
         }
       }
     }
-    // console.log(mineCount);
-
-    cell.innerHTML = mineCount;
-    // if (mineCount == 0) {
-    //   //Reveal all adjacent cells as they do not have a mine
-    //   for (
-    //     let i = Math.max(cellRow - 1, 0);
-    //     i <= Math.min(cellRow + 1, 9);
-    //     i++
-    //   ) {
-    //     for (
-    //       let j = Math.max(cellCol - 1, 0);
-    //       j <= Math.min(cellCol + 1, 9);
-    //       j++
-    //     ) {
-    //       //Recursive Call
-    //       if (grid.rows[i].cells[j].innerHTML == "")
-    //         clickCell(grid.rows[i].cells[j]);
-    //     }
-    //   }
-    // }
-    // checkLevelCompletion();
+    checkLevelCompletion();
   }
 }
 

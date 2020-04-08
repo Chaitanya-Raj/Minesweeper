@@ -37,7 +37,8 @@ hr {
   border: solid 1px black;
   width: auto;
   font-family: helvetica;
-  font-size: 3rem;
+  font-size: 1.5rem;
+  cursor: pointer;
   height: auto;
   background: linear-gradient(to bottom right, #bbb, #eee);
 }
@@ -52,8 +53,22 @@ hr {
   align-items: center;
   border: solid 1px black;
   width: auto;
+  cursor: pointer;
   font-family: helvetica;
-  font-size: 3rem;
+  font-size: 1.5rem;
   height: auto;
-  background: red;
+  background: linear-gradient(to bottom right, #b00, #700);
+}
+
+.clicked {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: solid 1px black;
+  width: auto;
+  cursor: pointer;
+  font-family: helvetica;
+  font-size: 1.5rem;
+  height: auto;
+  background: linear-gradient(to bottom right, #555, #999);
 }
