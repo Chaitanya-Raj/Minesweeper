@@ -69,7 +69,7 @@ function clickCell(cell) {
     let index = cell.getAttribute("data-index");
     let cellRow = Math.floor(parseInt(index) / size);
     let cellCol = parseInt(index) % size;
-    alert(`Row : ${cellRow}   Column : ${cellCol}`);
+    // alert(`Row : ${cellRow}   Column : ${cellCol}`);
     for (
       let i = Math.max(cellRow - 1, 0);
       i <= Math.min(cellRow + 1, size - 1);
@@ -86,11 +86,11 @@ function clickCell(cell) {
             .getAttribute("data-mine") == "true"
         ) {
           mineCount++;
-          console.log(mineCount);
+          // console.log(mineCount);
         }
       }
     }
-    console.log(mineCount);
+    // console.log(mineCount);
 
     cell.innerHTML = mineCount;
     // if (mineCount == 0) {
