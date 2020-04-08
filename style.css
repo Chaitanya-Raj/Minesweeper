@@ -31,12 +31,29 @@ hr {
 }
 
 .cell {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   border: solid 1px black;
   width: auto;
+  font-family: helvetica;
+  font-size: 3rem;
   height: auto;
-  background-image: linear-gradient(to bottom right, #bbb, #eee);
+  background: linear-gradient(to bottom right, #bbb, #eee);
 }
 
 .cell:hover {
   transform: scale(1.1);
+}
+
+.mine {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: solid 1px black;
+  width: auto;
+  font-family: helvetica;
+  font-size: 3rem;
+  height: auto;
+  background: red;
 }
