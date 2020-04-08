@@ -22,6 +22,7 @@ function generateGrid(size) {
   addMines();
 }
 
+//adds mines in random cells
 function addMines() {
   for (let i = 0; i < size; i++) {
     let index = Math.floor((Math.random() * 10) % (size * size));
@@ -34,6 +35,7 @@ function addMines() {
   }
 }
 
+//add red color to the cells having mines
 function revealMines() {
   for (let i = 0; i < size * size; i++) {
     let cell = document.querySelector(`[data-index="${i}"]`);
@@ -54,13 +56,49 @@ function checkLevelCompletion() {
   }
 }
 
+//onclick method for cells
 function clickCell(cell) {
-  //Check if the end-user clicked on a mine
   if (cell.getAttribute("data-mine") == "true") {
     revealMines();
     alert("Game Over");
   } else {
     cell.classList.add("clicked");
+
+    //Count and display the number of adjacent mines
+    let mineCount = 0;
+    let cellRow = Math.floor(parseInt(cell.getAttribute("data-index")) / size);
+    let cellCol = parseInt(cell.getAttribute("data-index")) % size;
+    alert(`Row : ${cellRow}   Column : ${cellCol}`);
+    // for (let i = Math.max(cellRow - 1, 0); i <= Math.min(cellRow + 1, 9); i++) {
+    //   for (
+    //     let j = Math.max(cellCol - 1, 0);
+    //     j <= Math.min(cellCol + 1, 9);
+    //     j++
+    //   ) {
+    //     if (grid.rows[i].cells[j].getAttribute("data-mine") == "true")
+    //       mineCount++;
+    //   }
+    // }
+    // cell.innerHTML = mineCount;
+    // if (mineCount == 0) {
+    //   //Reveal all adjacent cells as they do not have a mine
+    //   for (
+    //     let i = Math.max(cellRow - 1, 0);
+    //     i <= Math.min(cellRow + 1, 9);
+    //     i++
+    //   ) {
+    //     for (
+    //       let j = Math.max(cellCol - 1, 0);
+    //       j <= Math.min(cellCol + 1, 9);
+    //       j++
+    //     ) {
+    //       //Recursive Call
+    //       if (grid.rows[i].cells[j].innerHTML == "")
+    //         clickCell(grid.rows[i].cells[j]);
+    //     }
+    //   }
+    // }
+    // checkLevelCompletion();
   }
 }
 
