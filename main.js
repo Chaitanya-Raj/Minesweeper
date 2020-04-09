@@ -120,3 +120,9 @@ function clickCell(cell) {
 }
 
 generateGrid(size);
+
+const button = document.getElementById("reset");
+button.addEventListener("click", () => {
+  document.getElementById("grid-container").innerHTML = "";
+  generateGrid(size);
+});
