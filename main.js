@@ -27,11 +27,10 @@ function generateGrid(size) {
 function addMines() {
   for (let i = 0; i < bombCount; i++) {
     let index = Math.floor(Math.random() * size * size);
-    console.log(index);
-
     let cell = document.querySelector(`[data-index="${index}"]`);
     cell.setAttribute("data-mine", "true");
     if (testMode) {
+      console.log(index);
       cell.innerHTML = "X";
       revealMines();
     }
