@@ -14,8 +14,13 @@ function generateGrid(size) {
       cell.classList.add("cell");
       cell.setAttribute("data-index", count++);
       cell.setAttribute("data-mine", false);
+      cell.setAttribute("data-flag", false);
+      cell.setAttribute("data-clicked", false);
       cell.addEventListener("click", (e) => {
         clickCell(e.target);
+      });
+      cell.addEventListener("contextmenu", (e) => {
+        flagCell(e.target);
       });
       grid.appendChild(cell);
     }
@@ -58,13 +63,28 @@ function checkLevelCompletion() {
   }
 }
 
+function flagCell(cell) {
+  if (cell.getAttribute("data-clicked") == "false") {
+    if (cell.getAttribute("data-flag") == "true") {
+      cell.className = "cell";
+      cell.setAttribute("data-flag", "false");
+      return;
+    }
+    cell.className = "flag";
+    cell.setAttribute("data-flag", "true");
+  }
+}
+
 //onclick method for cells
 function clickCell(cell) {
-  if (cell.getAttribute("data-mine") == "true") {
+  if (cell.getAttribute("data-flag") == "true") {
+    return;
+  } else if (cell.getAttribute("data-mine") == "true") {
     revealMines();
     alert("Game Over");
   } else {
     cell.className = "clicked";
+    cell.setAttribute("data-clicked", "true");
 
     //Count and display the number of adjacent mines
     let mineCount = 0;

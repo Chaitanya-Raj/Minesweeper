@@ -74,6 +74,19 @@ hr {
   background: linear-gradient(to bottom right, #555, #999);
 }
 
+.flag {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: solid 1px black;
+  width: auto;
+  cursor: pointer;
+  font-family: helvetica;
+  font-size: 1.5rem;
+  height: auto;
+  background: linear-gradient(to bottom right, green, yellow);
+}
+
 #reset {
   display: flex;
   margin-top: 10px;
