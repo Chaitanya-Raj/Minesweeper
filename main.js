@@ -3,6 +3,9 @@ bombCount = size * 2;
 let testMode = false;
 
 let grid = document.getElementById("grid-container");
+let reset = document.querySelector(".reset");
+let msg = document.getElementById("msg");
+let button = document.getElementById("button");
 
 function generateGrid(size) {
   grid.style.gridTemplateColumns = `repeat(${size}, 1fr)`;
@@ -58,8 +61,9 @@ function checkLevelCompletion() {
       levelComplete = false;
   }
   if (levelComplete) {
-    alert("You Win!");
+    msg.innerText = "You Win!";
     revealMines();
+    reset.classList.add("show");
   }
 }
 
@@ -81,7 +85,8 @@ function clickCell(cell) {
     return;
   } else if (cell.getAttribute("data-mine") == "true") {
     revealMines();
-    alert("Game Over");
+    msg.innerText = "Game Over";
+    reset.classList.add("show");
   } else {
     cell.className = "clicked";
     cell.setAttribute("data-clicked", "true");
@@ -140,8 +145,8 @@ function clickCell(cell) {
 
 generateGrid(size);
 
-const button = document.getElementById("reset");
 button.addEventListener("click", () => {
   document.getElementById("grid-container").innerHTML = "";
   generateGrid(size);
+  reset.classList.remove("show");
 });

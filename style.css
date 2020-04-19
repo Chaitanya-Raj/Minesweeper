@@ -87,11 +87,36 @@ hr {
   background: linear-gradient(to bottom right, green, yellow);
 }
 
-#reset {
-  display: flex;
-  margin-top: 10px;
-  align-items: center;
+.reset {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.8);
   justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 5rem;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+#button {
+  font-size: 3rem;
+  background-color: ;
+  border: 1px solid black;
+  padding: 0.25em 0.5em;
+  cursor: pointer;
+}
+
+.reset.show {
+  display: flex;
+}
+
+#msg {
+  color: antiquewhite;
 }
 
 button {
