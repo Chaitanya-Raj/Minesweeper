@@ -1,5 +1,5 @@
 let size = 8;
-bombCount = size;
+bombCount = size * 1.5;
 let testMode = false;
 
 let grid = document.getElementById("grid-container");
