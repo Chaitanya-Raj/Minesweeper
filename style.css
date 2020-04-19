@@ -116,6 +116,7 @@ hr {
 
 #msg {
   color: antiquewhite;
+  font-size: 7rem;
 }
 
 button {
@@ -137,5 +138,8 @@ footer img {
   #grid-container {
     width: 50vh;
     height: 50vh;
+  }
+  #msg {
+    font-size: 4rem;
   }
 }
