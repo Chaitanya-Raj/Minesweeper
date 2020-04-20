@@ -31,49 +31,9 @@ hr {
   border: solid 3px black;
 }
 
-.cell {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border: solid 1px black;
-  width: auto;
-  font-family: helvetica;
-  font-size: 1.5rem;
-  cursor: pointer;
-  height: auto;
-  background: linear-gradient(to bottom right, #333, #555);
-}
-
-.cell:hover {
-  transform: scale(1.1);
-}
-
-.mine {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border: solid 1px black;
-  width: auto;
-  cursor: pointer;
-  font-family: helvetica;
-  font-size: 1.5rem;
-  height: auto;
-  background: linear-gradient(to bottom right, #b00, #700);
-}
-
-.clicked {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border: solid 1px black;
-  width: auto;
-  cursor: pointer;
-  font-family: helvetica;
-  font-size: 1.5rem;
-  height: auto;
-  background: linear-gradient(to bottom right, #555, #999);
-}
-
+.cell,
+.mine,
+.clicked,
 .flag {
   display: flex;
   justify-content: center;
@@ -84,6 +44,25 @@ hr {
   font-family: helvetica;
   font-size: 1.5rem;
   height: auto;
+}
+
+.cell {
+  background: linear-gradient(to bottom right, #333, #555);
+}
+
+.cell:hover {
+  transform: scale(1.1);
+}
+
+.mine {
+  background: linear-gradient(to bottom right, #b00, #700);
+}
+
+.clicked {
+  background: linear-gradient(to bottom right, #555, #999);
+}
+
+.flag {
   background: linear-gradient(to bottom right, green, yellow);
 }
 
