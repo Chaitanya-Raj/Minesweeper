@@ -53,6 +53,7 @@ function revealMines() {
   }
 }
 
+//check if the game is finished or not
 function checkLevelCompletion() {
   let levelComplete = true;
   for (let i = 0; i < size * size; i++) {
@@ -67,6 +68,7 @@ function checkLevelCompletion() {
   }
 }
 
+//flag suspected cells
 function flagCell(cell) {
   if (cell.getAttribute("data-clicked") == "false") {
     if (cell.getAttribute("data-flag") == "true") {
@@ -116,7 +118,17 @@ function clickCell(cell) {
       }
     }
 
-    cell.innerHTML = mineCount;
+    let colors = {
+      0: "transparent",
+      1: "green",
+      2: "blue",
+      3: "red",
+      4: "purple",
+    };
+
+    cell.innerHTML = `<span style='-webkit-text-stroke: 0.5px black;color:${
+      colors[mineCount]
+    }'>${mineCount > 0 ? mineCount : " "}</span>`;
 
     if (mineCount == 0) {
       //Reveal all adjacent cells as they do not have a mine
